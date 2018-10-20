@@ -40,7 +40,7 @@ class SyncUserActivedAt extends Command
     {
         $this->info('开始同步');
         $user->syncUserActivedAt();
-        $this->info('开始成功');
+        $this->info('同步成功');
 
     }
 }

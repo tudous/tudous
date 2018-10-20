@@ -83,7 +83,7 @@ class RegisterController extends Controller
         //$from = ;
         //$name = ;
         $to = $user->email;
-        $subject = "感谢注册 ABC 应用！请点击链接激活账号。";
+        $subject = "感谢注册 tudousclub ！请点击链接激活账号。";
 
         Mail::send($view, $data, function ($message) use ($to, $subject) {
             $message->to($to)->subject($subject);

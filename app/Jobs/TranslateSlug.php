@@ -7,6 +7,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Log;
 
 
 use App\Models\Topic;
@@ -26,8 +27,10 @@ class TranslateSlug implements ShouldQueue
 
     public function handle()
     {
+        Log::info("开始请求百度API");
         // 请求百度 API 接口进行翻译
         $slug = app(SlugTranslateHandler::class)->translate($this->topic->title);
+        Log::info("结束请求百度API".$slug);
 
         // 为了避免模型监控器死循环调用，使用 DB 类直接对数据库进行操作
         \DB::table('topics')->where('id', $this->topic->id)->update(['slug' => $slug]);

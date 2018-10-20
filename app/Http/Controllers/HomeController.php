@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth',['except' => ['index', 'show','permissionDenied']]);
+        $this->middleware('auth',['except' => ['index', 'show','permissionDenied','search']]);
     }
 
     /**
@@ -37,7 +37,7 @@ class HomeController extends Controller
                     ->orWhere('body','like',"%$wd%")
                     ->paginate(20);
         //return $result;
-        return view('search.search',compact('topics'));
+        return view('search.search',compact('topics','wd'));
   
     }
 

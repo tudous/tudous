@@ -55,7 +55,8 @@
                     
                     <ul class="nav navbar-nav" style="margin:7px 0px 0px 200px;">
                         <form class="form-inline"  role="form" action="{{route('search')}}" method="get">
-                        <input style="width:200px;height:35px;" class="b-search-text" type="text" name="wd">
+                        <input style="width:200px;height:35px;" class="b-search-text" type="text" name="wd" value="{{ $wd or null }}
+">
                         <span onclick="parentNode.submit()" class="glyphicon glyphicon-search" aria-hidden="true">
                         <!-- <input class="glyphicon glyphicon-search" type="submit" value=""> -->
                         </form>
@@ -152,9 +153,9 @@
         @include('sudosu::user-selector')
     @endif
     <!-- Scripts -->
-   <!--  <script src="{{ asset('js/app.js') }}"></script> -->
-    <script src="http://code.jquery.com/jquery.js"></script>
-   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="http://code.jquery.com/jquery.js"></script>
+   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
    @yield('scripts')
   
 </body>
